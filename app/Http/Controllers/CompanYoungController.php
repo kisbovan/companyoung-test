@@ -163,11 +163,18 @@ class CompanYoungController extends Controller
             return redirect('/');
         }
 
-        $results = PersonsData::query()
-            ->where('field_id', '=', $fieldId)
-            ->where('value', 'LIKE', '%' . $searchValue . '%')
-            ->pluck('person_id')
-            ->toArray();
+        if ($fieldId === 'all') {
+            $results = PersonsData::query()
+                ->where('value', 'LIKE', '%' . $searchValue . '%')
+                ->pluck('person_id')
+                ->toArray();
+        } else {
+            $results = PersonsData::query()
+                ->where('field_id', '=', $fieldId)
+                ->where('value', 'LIKE', '%' . $searchValue . '%')
+                ->pluck('person_id')
+                ->toArray();
+        }
 
         return redirect('/?person_ids=' . implode(',', $results));
     }

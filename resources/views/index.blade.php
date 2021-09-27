@@ -28,7 +28,7 @@
         <br>
         <div>
             @isset ($tableHeaders)
-                <input type="button" onclick="window.location.href='/adSearchd-person';" value="Add person"/>
+                <input type="button" onclick="window.location.href='/add-person';" value="Add person"/>
             @endisset
         </div>
         <br>
