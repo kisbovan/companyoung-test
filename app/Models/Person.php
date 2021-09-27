@@ -14,16 +14,6 @@ class Person extends Model
      */
     protected $table = 'persons';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
-     */
-    protected $fillable = [
-        'field_id',
-        'value'
-    ];
-
     public function data(): HasMany
     {
         return $this->hasMany(PersonsData::class, 'person_id');

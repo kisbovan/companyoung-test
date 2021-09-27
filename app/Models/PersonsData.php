@@ -21,6 +21,7 @@ class PersonsData extends Model
      */
     protected $fillable = [
         'field_id',
+        'person_id',
         'value'
     ];
 
