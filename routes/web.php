@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanYoungController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [CompanYoungController::class, 'index']);
+
+Route::get('/add-unique-field', [CompanYoungController::class, 'addUniqueField']);
+
+Route::post('/save-unique-field', [CompanYoungController::class, 'saveUniqueField']);
+
+Route::get('/add-person', [CompanYoungController::class, 'addPerson']);
+
+Route::post('/save-person', [CompanYoungController::class, 'savePerson']);
+
+Route::post('/search', [CompanYoungController::class, 'search']);
+
+Route::post('/sort', [CompanYoungController::class, 'sort']);
